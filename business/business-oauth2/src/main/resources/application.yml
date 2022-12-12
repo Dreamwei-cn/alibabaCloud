@@ -1,0 +1,13 @@
+DDdd:
+  value: test
+
+
+server:
+  port: 9080
+
+
+business:
+  oauth2:
+    grant_type: password
+    client_id: client
+    client_secret: secret

@@ -1,0 +1,56 @@
+base:
+  config:
+    oauth:
+      hostname: localhost
+      port: 9080
+    nacos:
+      addr: 192.168.3.188:8848
+    sentinel:
+      hostname: localhost
+      port: 8080
+
+spring:
+  application:
+    name: business-profile-feign
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: ${base.config.nacos.addr}
+        namespace:
+        username:
+        password:
+    sentinel:
+      transport:
+        dashboard: ${base.config.sentinel.hostname}:${base.config.sentinel.port}
+dubbo:
+  registry:
+    address: spring-cloud://${base.config.nacos.addr}
+  scan:
+    base-packages: org.com.dream.cloud.business.oauth2.service,org.com.dream.cloud.business.oauth2.controller
+  protocol:
+    name: dubbo
+    port: -1
+  cloud:
+    subscribed-services: admin-user-provider
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+security:
+  oauth2:
+    client:
+      client-id: client
+      client-secret: secret
+      access-token-uri: http://${base.config.oauth.hostname}:${base.config.oauth.port}/oauth/token
+      user-authorization-uri: http://${base.config.oauth.hostname}:${base.config.oauth.port}/oauth/authorize
+    resource:
+      token-info-uri: http://${base.config.oauth.hostname}:${base.config.oauth.port}/oauth/check_token

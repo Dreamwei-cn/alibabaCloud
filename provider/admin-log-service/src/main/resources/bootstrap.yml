@@ -1,0 +1,27 @@
+
+
+
+spring:
+  application:
+    name: admin-log-provider
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: 192.168.3.188:8848
+        namespace:
+        username:
+        password:
+dubbo:
+  registry:
+    address: spring-cloud://192.168.3.188:8848
+  scan:
+    base-packages: org.com.dream.cloud.provider
+  protocol:
+    name: dubbo
+    port: 20881
+  cloud:
+    subscribed-services: admin-user-provider
+

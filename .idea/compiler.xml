@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="dream-cloud-commons-api" />
+        <module name="dream-cloud-commons-webflux" />
+        <module name="dream-cloud-provider-admin-log-api" />
+        <module name="dream-cloud-business-oauth2" />
+        <module name="dream-cloud-code" />
+        <module name="dream-cloud-business-reg" />
+        <module name="dream-cloud-business-profile-feign" />
+        <module name="dream-cloud-provider-admin-api" />
+        <module name="dream-cloud-provider-consumer" />
+        <module name="dream-cloud-provider-admin-user-service" />
+        <module name="dream-cloud-provider-admin" />
+        <module name="dream-cloud-provider-admin-log-service" />
+        <module name="dream-cloud-gateway" />
+        <module name="dream-cloud-business-profile-service" />
+        <module name="dream-cloud-provider-admin-user-api" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="8">
+      <module name="dream-cloud-business-profile" target="1.8" />
+      <module name="dream-cloud-commons-api (1)" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

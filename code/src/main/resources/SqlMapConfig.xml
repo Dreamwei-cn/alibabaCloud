@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 配置和数据库连接相关的信息 -->
+    <!-- 四大件
+    驱动
+    地址
+    用户名
+    密码
+    -->
+    <!--
+    default 默认的环境,在这个配置文件中 可以创建对个环境,如果有多个的时候需要制动默认值,这个值就是下面环境的id值
+    -->
+    <environments default="abc">
+        <environment id="abc">
+            <!--
+            固定值JDBC
+            -->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--
+            数据源 起始就是一个连接池
+            可以使用mybatis默认的连接池POOLED
+             -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"></property>
+                <property name="url" value="jdbc:mysql:///mplus_log?useUnicode=true&amp;characterEncoding=utf-8"></property>
+                <property name="username" value="root"></property>
+                <property name="password" value="root"></property>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!--<mapper resource="UserMapper.xml"></mapper>-->
+        <!-- 扫描指定包下面的所有的xml文件 -->
+        <package name="org.com.dream.cloud.code.mapper"></package>
+    </mappers>
+</configuration>

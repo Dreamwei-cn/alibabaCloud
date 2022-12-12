@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- 配置 tableName,使用 Run As Maven build 生成 dao model 层 -->
+<generatorConfiguration>
+    <!-- 配置文件路径
+     <propertiers url="${mybatis.generatorConfig.properties}"/>
+     -->
+    <!-- 数据库驱动包路径 -->
+    <classPathEntry
+            location="D:\apache-maven-3.5.2\.m2\repository\mysql\mysql-connector-java\5.1.47\mysql-connector-java-5.1.47.jar"></classPathEntry>
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!-- 关闭注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库连接信息 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.3.188:3306/mplus_log?useUnicode=true&amp;characterEncoding=utf-8"
+                        userId="root" password="root">
+        </jdbcConnection>
+
+        <!-- 生成的model包路径 -->
+        <javaModelGenerator targetPackage="org.com.dream.cloud.code.entity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"></property>
+            <property name="trimStrings" value="true"></property>
+        </javaModelGenerator>
+
+        <!-- 生成xml mapper文件 路径 -->
+        <sqlMapGenerator targetPackage="org.com.dream.cloud.code.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"></property>
+        </sqlMapGenerator>
+
+        <!-- 生成的Dao接口 的包路径 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.com.dream.cloud.code.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"></property>
+        </javaClientGenerator>
+
+        <!-- 对应数据库表名 ，多个表，请复制指定-->
+<!--        <table tableName="auth_user"></table>-->
+        <table tableName="log_info"></table>
+    </context>
+</generatorConfiguration>
